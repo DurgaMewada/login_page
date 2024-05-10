@@ -6,6 +6,8 @@ class Login extends StatefulWidget {
   @override
   State<Login> createState() => _LoginState();
 }
+TextEditingController txtEmail = TextEditingController();
+TextEditingController txtPassword = TextEditingController();
 
 class _LoginState extends State<Login> {
   @override
@@ -14,7 +16,7 @@ class _LoginState extends State<Login> {
         body: Stack(
           children:[
             Padding(
-              padding: const EdgeInsets.all(30.0),
+              padding: const EdgeInsets.all(50.0),
               child: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
@@ -43,20 +45,122 @@ class _LoginState extends State<Login> {
                     height: 20,
                   ),
                   TextField(
+                    controller: txtEmail,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(
+                      prefixIcon: Icon(Icons.person_3_outlined),
+                      enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
                         borderSide: BorderSide(
-                          color: Colors.grey.shade300,
+                          color: Colors.grey,
                           width: 2,
-
                         ),
                       ),
-                      prefix: Icon(Icons.person),
+                      focusedBorder:  OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(
+                          color: Colors.grey,
+                          width: 2.5,
+                        ),
+                      ),
                       labelText: 'E-Mail',
                       hintText: '  example@gmail.com',
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  TextField(
+                    controller: txtPassword,
+                    obscureText: true,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.fingerprint),
+                      suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(
+                          color: Colors.grey,
+                          width: 2,
+                        ),
+                      ),
+                      focusedBorder:  OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(
+                          color: Colors.grey,
+                          width: 3,
+                        ),
+                      ),
+                      labelText: 'Password',
+                      hintText: '  123#####',
+                    ),
+                  ),
+                  SizedBox(height: 2,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(onPressed: (){}, child: Text('Forget Password?',style: TextStyle(color: Colors.blue),))
+                    ],
+                  ),
+                  Container(
+                    height: 60,
+                    width: 400,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text('LOGIN',style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),),
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('OR',style: TextStyle(
+                        color: Colors.grey.shade700,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20,
+                      ),)
+                    ],
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Container(
+                    height: 60,
+                    width: 400,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text('Sign-in with Google',style: TextStyle(
+                      fontSize:18,
+                      color: Colors.black,
+                    ),),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Do not have an Account?',style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                      ),),
+                      Text(' Signup',style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                      ),),
+                    ],
+                  ),
                 ],
               ),
             )
